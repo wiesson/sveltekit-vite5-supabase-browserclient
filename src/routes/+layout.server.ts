@@ -5,7 +5,7 @@ export const load: LayoutServerLoad = async ({ request, locals: { getSession, su
 	const session = await getSession();
 
 	if (!session && request.url.includes('/app')) {
-		throw redirect(307, '/auth');
+		redirect(307, '/auth');
 	}
 
 	return {
